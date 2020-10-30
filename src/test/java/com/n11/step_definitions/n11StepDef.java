@@ -67,7 +67,7 @@ public class n11StepDef {
     @Then("product page opens and go to product page {string}")
     public void product_page_opens_and_go_to_product_page(String expectedPage) {
         searchPage.ProductsPagesBtn(expectedPage);
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(3);
         String actualPageNumber = String.valueOf(searchPage.pageNumber.getAttribute("value"));
         Assert.assertEquals(expectedPage, actualPageNumber);
         System.out.println("actualNumber = " + actualPageNumber);
