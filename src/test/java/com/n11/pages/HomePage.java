@@ -27,6 +27,9 @@ public class HomePage extends BasePage {
     @FindBy(css = "a.searchBtn")
     public WebElement searchBtn;
 
+    @FindBy(className = "seg-popup-close")
+    public WebElement closePopup;
+
     public void searchProduct(String product) {
         BrowserUtils.waitFor(2);
         searchInput.sendKeys(product);

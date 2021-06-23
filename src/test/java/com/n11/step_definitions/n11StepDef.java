@@ -24,12 +24,13 @@ public class n11StepDef {
     String favsProduct;
     String choosingProduct;
 
+    WebDriverWait wait = new WebDriverWait(Driver.get(), 20);
 
     @Given("go to the n11 homepage")
     public void go_to_the_n11_homepage() {
         String url = ConfigurationReader.get("url");
         Driver.get().get(url);
-        homePage.privPoliciyBtn.click();
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.closePopup)).click();
         System.out.println("I opened the n11.com.tr");
         String actualUrl = Driver.get().getCurrentUrl();
         Assert.assertEquals("Verify this website", url, actualUrl);
@@ -38,7 +39,7 @@ public class n11StepDef {
 
     @When("the user opened the login page")
     public void the_user_opened_the_login_page() {
-        WebDriverWait wait = new WebDriverWait(Driver.get(), 20);
+
         wait.until(ExpectedConditions.elementToBeClickable(homePage.SignInBtn)).click();
     }
 
